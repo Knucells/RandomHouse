@@ -1,4 +1,5 @@
 import random
+import time
 
 house = ['lounge', 'bedroom', 'kitchen', 'bathroom']
 
@@ -11,35 +12,55 @@ bathroom_chore = ['clean toilet', 'clean sink', 'clean bathtub/tiles']
 fun = ['do hobby', 'play a card game', 'play Borderlands', 'play Warframe', 'play Army of Two', 'play Resistance', 'play Warhammer']
 passive = ['listening to music', 'watching a film: Comedy', 'watching a film: Animated', 'watching a tv series', 'watching youtube videos']
 
-room = random.choice(house)
-fun = random.choice(fun)
-passive = random.choice(passive)
+class House(object):
+	def __init__(self):
+		self._room = random.choice(house)
+		self._fun = random.choice(fun)
+		self._passive = random.choice(passive)
+
+	def room(self, room):
+		return self._room
+
+	def fun(self, fun):
+		return self._fun
+
+	def passive(self, passive):
+		return self._passive
+
+	room = property(room)
+	fun = property(fun)
+	passive = property(passive)
+
+print room, fun, passive
+
+#print("The room picked was " + room + ".")
+#print ("As a reward, you should " + fun + ", while " + passive + ".")
 
 def chore(room):
 	for h in house:
 		if room == 'lounge':
 			lounge = random.choice(lounge_chore)
-			print (lounge)
+			print ("You should " + lounge + ".")
 			break
 		if room == 'bedroom':
 			bedroom = random.choice(bedroom_chore)
-			print (bedroom)
+			print ("You should " + bedroom + ".")
 			break
 		if room == 'kitchen':
 			kitchen = random.choice(kitchen_chore)
-			print (kitchen)
+			print ("You should " + kitchen + ".")
 			break
 		if room == 'bathroom':
 			bathroom = random.choice(bathroom_chore)
-			print (bathroom)
+			print ("You should " + bathroom + ".")
 			break
 		else: 
-			print('ERROR')
+			print("ERROR")
 
-def roomdec(room):
-	print("The room picked was " + room + ".")
 
-roomdec(room) 
-chore(room)
+#def reroll()
+#roll = raw_input("Would you like to re-roll? Y/N")
+	#if roll = "Y":
 
-print ("As a reward, you should " + fun + ", while " + passive + ".")
+
+time.sleep(360)
