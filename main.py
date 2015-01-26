@@ -1,18 +1,45 @@
 import random
 
-#list = []
-#for list in list:
-#	print "%s" % list
+house = ['lounge', 'bedroom', 'kitchen', 'bathroom']
 
-#add = input("Enter an activity: ")
-#if add not in list: list.append(add)
-#else: print("Already added!")
+lounge_chore = ['clear couch', 'clear desks', 'organise warhammer', 'hoover/mop floor']
+bedroom_chore = ['change bedsheets', 'do washing', 'organise toys', 'organise cupboards']
+kitchen_chore = ['clean dishes', 'wipe counters', 'organise cupboards', 'hoover/mop floor']
+bathroom_chore = ['clean toilet', 'clean sink', 'clean bathtub/tiles']
 
-#print(random.choice(list))
+#you should [PREP VERB] while [ACTIVITY]
+fun = ['do hobby', 'play a card game', 'play Borderlands', 'play Warframe', 'play Army of Two', 'play Resistance', 'play Warhammer']
+passive = ['listening to music', 'watching a film: Comedy', 'watching a film: Animated', 'watching a tv series', 'watching youtube videos']
 
-chore = ['tidy kitchen', 'do dishes', 'tidy lounge', 'tidy bedroom', 'clean bathroom', 'hoover', 'tidy random crap', 'do course work']
-fun = ['paint models', 'play card game', 'play Borderlands', 'play Warframe', 'play Army of Two', 'play Resistance', 'play Warhammer']
-passive = ['listen to music', 'watch a film: Comedy', 'watch a film: Animated', 'watch a tv series', 'watch youtube videos']
+room = random.choice(house)
+fun = random.choice(fun)
+passive = random.choice(passive)
 
-#print("You should do " (random.choice(chore)) "then " (random.choice(fun)) "while listening or watching " (random.choice(passive)))
-print (random.choice(chore), random.choice(fun), random.choice(passive))
+def chore(room):
+	for h in house:
+		if room == 'lounge':
+			lounge = random.choice(lounge_chore)
+			print (lounge)
+			break
+		if room == 'bedroom':
+			bedroom = random.choice(bedroom_chore)
+			print (bedroom)
+			break
+		if room == 'kitchen':
+			kitchen = random.choice(kitchen_chore)
+			print (kitchen)
+			break
+		if room == 'bathroom':
+			bathroom = random.choice(bathroom_chore)
+			print (bathroom)
+			break
+		else: 
+			print('ERROR')
+
+def roomdec(room):
+	print("The room picked was " + room + ".")
+
+roomdec(room) 
+chore(room)
+
+print ("As a reward, you should " + fun + ", while " + passive + ".")
